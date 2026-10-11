@@ -12,9 +12,8 @@ server.get("/hello", (req, res) => {
 
     return res.json({ 
         title: "Hello World",
-        message: `Olá, ${nome}, você tem ${req.query.idade} anos!`
+        message: `Olá, ${nome}, você tem ${req.query.idade} anos! Tudo bem com você?`
     });
 });
 
 server.listen(3000);
-
