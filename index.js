@@ -1,4 +1,4 @@
-const express = require('express');
+/* const express = require('express');
 const server = express();
 
 // http://localhost:3000/hello?nome=Ryan&idade=20
@@ -63,4 +63,4 @@ server.delete('/customers/:id', (req, res) => {
     return res.status(status).json();
 });
 
-server.listen(3000);
+server.listen(3000); */
