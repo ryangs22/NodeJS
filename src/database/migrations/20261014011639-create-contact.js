@@ -1,7 +1,7 @@
 /** @type {import('sequelize-cli').Migration} */
 export default {
   async up (queryInterface, Sequelize) {
-    return queryInterface.createTable('contact', {
+    return queryInterface.createTable("contact", {
         id: {
             type: Sequelize.INTEGER,
             allowNull: false,
