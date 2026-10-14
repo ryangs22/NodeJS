@@ -6,11 +6,14 @@ class Customer extends Model {
         {
             name: Sequelize.STRING,
             email: Sequelize.STRING,
-            status: Sequelize.ENUM('ACTIVE', 'INACTIVE'),
+            status: Sequelize.ENUM("ACTIVE", "ARCHIVED"),
         },
         {
             sequelize,
         });
+    }
+    static associate(models) {
+        this.hasMany(models.Contact);
     }
 }
 
