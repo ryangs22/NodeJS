@@ -51,7 +51,7 @@ server.put('/customers/:id', (req, res) => {
     return res.status(status).json(customers[index]);
 })
 
-server.delete('/customers/:id', (req, res) => { 
+server.delete('/customers/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const index = customers.findIndex(item => item.id === id);
     const status = index >=0 ? 200 : 404;

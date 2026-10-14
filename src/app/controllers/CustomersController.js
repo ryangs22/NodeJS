@@ -1,4 +1,6 @@
-let customers = [
+import Customer from "../models/Customer";
+
+const customers = [
     { id: 1, name: "Ryan", site: "https://rgsportfolio.vercel.app/" },
     { id: 2, name: "Google", site: "https://www.google.com" },
     { id: 3, name: "Nvidia", site: "https://www.nvidia.com" }
@@ -6,8 +8,12 @@ let customers = [
 
 class CustomersControllers {
     //Listagem dos Customers
-    index(req, res) {
-       return res.json(customers);
+    async index(req, res) {
+        const data = await Customer.findAll({
+            limit: 1000,
+        });
+
+       return res.json(data);
     }
 
     //Recupera um Costumer
