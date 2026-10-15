@@ -16,7 +16,7 @@ export default defineConfig([
       "no-param-reassign": "off",
       "camelcase": "off",
       "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-      "no-console": ["error", { allow: ["warn", "error"] }]
+      "no-console": "off",
     }
   },
   eslintConfigPrettier
