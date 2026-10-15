@@ -1,4 +1,4 @@
-- ARQUIVO playground.js: Em ambiente de produção NÃO deveria existir. Entretanto, como este é um projeto de aprendizado, ele serve como um ambiente de testes para Queries com visualização no console (como na figura indexada nessa pasta docs).
+- ARQUIVO playground.js: Em ambiente de produção NÃO deveria existir. Entretanto, como este é um projeto de aprendizado, ele serve como um ambiente de testes para Queries com visualização no console (como na figura image.png indexada nessa pasta docs).
 
 - ARQUIVO first_concept.js: É um arquivo de criação de um servidor inicial com os métodos HTTP utilizando um array de customers.
 
@@ -6,3 +6,5 @@ A aplicação utilizará de 3 tabelas:
 - Tabela de clientes (costumers)
 - Tabela dos contatos desses clientes (contacts)
 - Tabela de autenticação (users)
+
+OBS: Os dados da figura image.png são meramente ilustrativos para fins de aprendizado e nenhum dos dados adicionados são sensíveis/reais (no caso dos emails e datas, todos são inventados)
