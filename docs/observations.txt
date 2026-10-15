@@ -2,5 +2,7 @@
 
 - ARQUIVO first_concept.js: É um arquivo de criação de um servidor inicial com os métodos HTTP utilizando um array de customers.
 
-
-
+A aplicação utilizará de 3 tabelas:
+- Tabela de clientes (costumers)
+- Tabela dos contatos desses clientes (contacts)
+- Tabela de autenticação (users)

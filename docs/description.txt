@@ -1,4 +1,0 @@
-A aplicação utilizará de 3 tabelas:
-- Tabela de clientes (costumers)
-- Tabela dos contatos desses clientes (contacts)
-- Tabela de autenticação (users)
