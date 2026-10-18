@@ -7,4 +7,4 @@ A aplicação utilizará de 3 tabelas:
 - Tabela dos contatos desses clientes (contacts)
 - Tabela de autenticação (users)
 
-OBS: Os dados da figura image.png são meramente ilustrativos para fins de aprendizado e nenhum dos dados adicionados são sensíveis/reais (no caso dos emails e datas, todos são inventados)
+OBS: Os dados da figura image.png são meramente ilustrativos para fins de aprendizado e nenhum dos dados adicionados são reais (no caso dos emails e datas, todos são inventados). Portanto, não há exposição de dados sensíveis dos costumers.
