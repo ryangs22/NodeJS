@@ -122,7 +122,7 @@ npm run dev
 # ou
 yarn dev
 
-# Iniciar o ambiente de testes rápidos isolados (Playground local)
+# Iniciar o ambiente de testes rápidos isolados (Playground local) // Arquivo deletado por questões de organização (para ter um noção de como é o arquivo verifique o histórico de commit)
 npm run playground
 # ou
 yarn playground
