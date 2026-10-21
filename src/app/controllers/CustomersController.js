@@ -2,12 +2,7 @@ import Customer from "../models/Customer";
 import Contact from "../models/Contact";
 import { Op } from "sequelize";
 import { parseISO } from "date-fns";
-
-const customers = [
-    { id: 1, name: "Ryan", site: "https://rgsportfolio.vercel.app/" },
-    { id: 2, name: "Google", site: "https://www.google.com" },
-    { id: 3, name: "Nvidia", site: "https://www.nvidia.com" }
-];
+import * as Yup  from "yup";
 
 class CustomersControllers {
     //Listagem dos Customers
@@ -50,31 +45,31 @@ class CustomersControllers {
             };
         }
 
-        if(createdBefore){
+        if (createdBefore) {
             where = {
                 ...where,
-                createdAt: {[Op.gte]: parseISO(createdBefore),},
+                createdAt: { [Op.lte]: parseISO(createdBefore) },
+            }
+        }
+
+        if (createdAfter) {
+            where = {
+                ...where,
+                createdAt: { [Op.gte]: parseISO(createdAfter) },
             };
         }
 
-        if(createdAfter){
+        if (updatedBefore) {
             where = {
                 ...where,
-                createdAt: {[Op.lte]: parseISO(createdAfter),},
+                updatedAt: { [Op.lte]: parseISO(updatedBefore) },
             };
         }
 
-        if(updatedBefore){
+        if (updatedAfter) {
             where = {
                 ...where,
-                updateAt: {[Op.gte]: parseISO(updatedBefore),},
-            };
-        }
-
-        if(updatedAfter){
-            where = {
-                ...where,
-                updateAt: {[Op.lte]: parseISO(updatedAfter),},
+                updatedAt: { [Op.gte]: parseISO(updatedAfter) },
             };
         }
 
@@ -100,46 +95,64 @@ class CustomersControllers {
     async show(req, res) {
         const customer = await Customer.findByPk(req.params.id);
 
+        if (!customer){
+            return res.status(404).json();
+        }
+
         return res.json(customer);
     }
 
     //Criação de um Customer
-    create(req, res) {
-        const { name, site } = req.body;
-        const nextID = customers.length > 0 ? customers[customers.length - 1].id + 1 : 1;
+    async create(req, res) {
+        const schema = Yup.object().shape({
+            name: Yup.string().required(),
+            email: Yup.string().email().required(),
+            status: Yup.string().uppercase(),
+        });
 
-        const newCustomer = { id: nextID, name, site };
-        customers.push(newCustomer);
+        if (!(await schema.isValid(req.body))) {
+            return res.status(400).json({ error: "Erro ao validar schema." });
+        }
 
-        return res.status(201).json(newCustomer);
+        const customer = await Customer.create(req.body);
+
+        return res.status(201).json(customer);
     }
 
     //Atualização de um Customer
-    update(req, res) {
-        const id = parseInt(req.params.id);
-        const { name, site } = req.body;
+    async update(req, res) {
+        const schema = Yup.object().shape({
+            name: Yup.string(),
+            email: Yup.string().email(),
+            status: Yup.string().uppercase(),
+        });
 
-        const index = customers.findIndex(item => item.id === id);
-        const status = index >=0 ? 200 : 404;
-
-        if (index >= 0) {
-            customers[index] = { id: parseInt(id), name, site };
+        if (!(await schema.isValid(req.body))) {
+            return res.status(400).json({error: "Erro ao validar schema."})
         }
 
-        return res.status(status).json(customers[index]);
+        const customer = await Customer.findByPk(req.params.id);
+
+        if (!customer){
+            return res.status(404).json();
+        }
+
+        await customer.update(req.body);
+
+        return res.json(customer);
     }
 
     //Deleção de um Customer
-    destroy(req, res) {
-        const id = parseInt(req.params.id);
-        const index = customers.findIndex(item => item.id === id);
-        const status = index >=0 ? 200 : 404;
+    async destroy(req, res) {
+        const customer = await Customer.findByPk(req.params.id);
 
-        if (index >= 0) {
-            customers.splice(index, 1);
+        if (!customer){
+            return res.status(404).json();
         }
 
-        return res.status(status).json();
+        await customer.destroy();
+
+        return res.json();
     }
 }
 
