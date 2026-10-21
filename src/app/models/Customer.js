@@ -25,17 +25,16 @@ class Customer extends Model {
             },
             hooks: {
                 beforeValidate: (customer) => {
-                    customer.status = "ARCHIVED" //Se eu rodar a criação de um customer, o default é ACTIVE, porém com o hook (gancho) de beforeValidate (antes de validar) ele altera o status pra ARCHIVED
+                    //customer.status = "ARCHIVED" //Se eu rodar a criação de um customer, o default é ACTIVE, porém com o hook (gancho) de beforeValidate (antes de validar) ele altera o status pra ARCHIVED
                 },
-            }
-        },
-        {
+            },
             sequelize,
             name: {
                 singular: "customer", plural: "customers",
             },
         });
     }
+
     static associate(models) {
         this.hasMany(models.Contact);
     }

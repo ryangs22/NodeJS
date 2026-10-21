@@ -97,12 +97,10 @@ class CustomersControllers {
     }
 
     //Recupera um Costumer
-    show(req, res) {
-        const id = parseInt(req.params.id);
-        const customer = customers.find(item => item.id === id);
-        const status = customer ? 200 : 404;
+    async show(req, res) {
+        const customer = await Customer.findByPk(req.params.id);
 
-        return res.status(status).json(customer);
+        return res.json(customer);
     }
 
     //Criação de um Customer
