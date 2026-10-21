@@ -132,4 +132,3 @@ yarn playground
 
 ## 🔒 Boas Práticas de Segurança e Código
 * **Proteção no GitHub:** O arquivo real `.env` contendo credenciais está explicitamente bloqueado pela expressão `.env*` dentro do `.gitignore`, impedindo o vazamento acidental de chaves locais.
-* **Padronização:** Arquivos de configurações de migrations utilizam a blindagem `/* eslint-disable no-undef */` para coexistir harmonicamente com o restante da aplicação estruturada em ES Modules.
