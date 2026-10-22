@@ -2,7 +2,7 @@
 
 # *Aplicação Back-end com Node.js, Express e PostgreSQL*
 
-> Este é um projeto focado no aprendizado e desenvolvimento de APIs em Node.js com o uso do Express e o ORM Sequelize para estruturação robusta de Rotas, Models e Controllers integrados ao banco de dados PostgreSQL. O ambiente conta com práticas modernas de mercado, incluindo compilação em tempo de execução com Sucrase, automação com Nodemon, padronização de código com ESLint e Prettier, além de segurança via variáveis de ambiente.
+> Este é um projeto focado no aprendizado e desenvolvimento de APIs em Node.js com o uso do Express e o ORM Sequelize para estruturação robusta de Rotas, Models e Controllers integrados ao banco de dados PostgreSQL. O ambiente conta com práticas modernas de mercado, incluindo compilação em tempo de execução com Sucrase, automação com Nodemon, padronização de código com ESLint e Prettier, Arquitetura MVC, além de segurança via variáveis de ambiente.
 
 <p align="center"> 
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" /> 
