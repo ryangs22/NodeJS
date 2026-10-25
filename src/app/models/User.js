@@ -1,4 +1,5 @@
 import Sequelize, { Model } from "sequelize";
+import bcrypt from "bcryptjs";
 
 class User extends Model {
     static init(sequelize) {
@@ -6,6 +7,8 @@ class User extends Model {
         {
             name: Sequelize.STRING,
             email: Sequelize.STRING,
+            //criando um campo virtual pra password
+            password: Sequelize.VIRTUAL,
             password_hash: Sequelize.STRING,
         },
         {
@@ -14,6 +17,16 @@ class User extends Model {
                 singular: "user", plural: "users",
             },
         });
+
+        this.addHook("beforeSave", async user => {
+            if(user.password) {
+                user.password_hash = await bcrypt.hash(user.password, 8);
+            }
+        });
+    }
+
+    checkPassword(password) {
+        return bcrypt.compare(password, this.password_hash);
     }
 }
 
