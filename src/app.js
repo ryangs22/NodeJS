@@ -1,7 +1,7 @@
 //Arquivo responsável por iniciar a aplicação
 import express from "express";
 import routes from "./routes";
-import authMiddleware from "./app/middlewares/auth";
+//import authMiddleware from "./app/middlewares/auth";
 
 import "./database";
 
@@ -14,7 +14,7 @@ class App {
 
     middlewares() {
         this.server.use(express.json());
-        this.server.use(authMiddleware);
+        //this.server.use(authMiddleware);
     }
 
     routes() {
