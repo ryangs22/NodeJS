@@ -2,6 +2,7 @@ import { Op } from "sequelize";
 import { parseISO } from "date-fns";
 import * as Yup  from "yup";
 import User from "../models/User";
+import Mail from "../../lib/Mail";
 
 class UsersControllers {
     async index(req, res){
@@ -108,8 +109,13 @@ class UsersControllers {
             return res.status(400).json({ error: "Erro ao validar schema." });
         }
 
-
         const { id, name, email, file_id, createdAt, updatedAt } = await User.create(req.body);
+
+        Mail.send({
+            to: email,
+            subject: "Bem-vindo(a)",
+            text: `Olá ${name}, bem-vindo(a) ao nosso sistema`,
+        });
 
         return res.status(201).json({ id, name, email, file_id, createdAt, updatedAt });
     }
