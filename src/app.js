@@ -1,9 +1,9 @@
 //Arquivo responsável por iniciar a aplicação
 import express from "express";
-import routes from "./routes";
+import routes from "./routes.js";
 //import authMiddleware from "./app/middlewares/auth";
 
-import "./database";
+import "./database/index.js";
 
 class App {
     constructor() {

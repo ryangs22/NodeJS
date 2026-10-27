@@ -1,4 +1,4 @@
-import File from "../models/File";
+import File from "../models/File.js";
 
 class FilesController {
     async create(req, res) {
