@@ -4,8 +4,11 @@ import contacts from "./app/controllers/ContactsController";
 import users from "./app/controllers/UsersController";
 import sessions from "./app/controllers/SessionsController";
 import auth from "./app/middlewares/auth";
+import multer from "multer";
+import multerConfig from "./config/multer";
 
 const routes = new Router();
+const upload = multer(multerConfig);
 
 //Sessions
 routes.post("/sessions", sessions.create);
@@ -33,5 +36,10 @@ routes.get("/users/:id", users.show);
 routes.post("/users", users.create);
 routes.put("/users/:id", users.update);
 routes.delete("/users/:id", users.destroy);
+
+//Files
+routes.post("/file", upload.single("file"), (req, res) => {
+    return res.json({ response: "ok" });
+})
 
 export default routes;
