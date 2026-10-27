@@ -2,7 +2,6 @@ import { Op } from "sequelize";
 import { parseISO } from "date-fns";
 import * as Yup  from "yup";
 import User from "../models/User.js";
-import DummyJob from "../jobs/DummyJob.js";
 import Queue from "../../lib/Queue.js";
 import WelcomeEmailJob from "../jobs/WelcomeEmailJob.js";
 
@@ -113,7 +112,6 @@ class UsersControllers {
 
         const { id, name, email, file_id, createdAt, updatedAt } = await User.create(req.body);
 
-        await Queue.add(DummyJob.key, {message: "Hello Jobs"});
         await Queue.add(WelcomeEmailJob.key, {name, email});
 
         return res.status(201).json({ id, name, email, file_id, createdAt, updatedAt });
