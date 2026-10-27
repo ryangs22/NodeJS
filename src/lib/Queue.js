@@ -1,8 +1,9 @@
 import Bee from "bee-queue";
 import DummyJob from "../app/jobs/DummyJob.js";
 import redisConfig from "../config/redis.js";
+import WelcomeEmailJob from "../app/jobs/WelcomeEmailJob.js";
 
-const jobs = [DummyJob];
+const jobs = [DummyJob, WelcomeEmailJob];
 
 //Criando fila para fazer envio dos emails dentro do Sistema
 class Queue {
