@@ -1,8 +1,8 @@
 import "dotenv/config";
 
 export default {
-  dialect: "postgres",
-  host: "localhost",
+  dialect: process.env.DB_DIALECT,
+  host: process.env.DB_HOST,
   username: process.env.DB_USER || "postgres",
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,

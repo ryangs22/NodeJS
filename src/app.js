@@ -1,4 +1,5 @@
 //Arquivo responsável por iniciar a aplicação
+import "dotenv/config";
 import express from "express";
 import routes from "./routes.js";
 //import authMiddleware from "./app/middlewares/auth";
