@@ -2,13 +2,17 @@
 import "dotenv/config";
 import express from "express";
 import routes from "./routes.js";
-import Youch from "youch";
+import { Youch } from "youch";
+
+import * as Sentry from "@sentry/node";
+import sentryConfig from "./config/sentry.js";
 
 import "./database/index.js";
 
 class App {
     constructor() {
         this.server = express();
+        Sentry.init(sentryConfig);
         this.middlewares();
         this.routes();
         this.exceptionHandler();
@@ -16,7 +20,6 @@ class App {
 
     middlewares() {
         this.server.use(express.json());
-        //this.server.use(authMiddleware);
     }
 
     routes() {
