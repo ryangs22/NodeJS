@@ -31,8 +31,8 @@
 O ecossistema depende de gerenciadores de pacotes ativos e serviços locais inicializados.
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Node.js-Versão_≥_18.x-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
-    <img src="https://img.shields.io/badge/npm-Versão_≥_9.x-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npm" />
+    <img src="https://img.shields.io/badge/Node.js-Versão_≥_24.x-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/npm-Versão_≥_11.x-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npm" />
     <img src="https://img.shields.io/badge/Yarn-Versão_≥_1.22.x-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white" alt="Yarn" />
 </p>
 
